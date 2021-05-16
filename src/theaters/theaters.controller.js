@@ -3,7 +3,7 @@ const reduceProperties = require("../utils/reduce-properties");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
 async function list(req, res) {
-  const data = await service.list();
+  const data = await service.list(req.params);
   const reducedMovies = reduceProperties("theater_id", {
     movie_id: ["movies", null, "movie_id"],
     title: ["movies", null, "title"],
